@@ -7,6 +7,8 @@ http://YOUR_IP_ADDRESS/?token=YOUR_TOKEN
 
 To customize your dashboard, edit the dashboard.js file like below.
 
+Icons can be found [here](https://pictogrammers.com/library/mdi/)
+
 
 
 ## STRUCTURE OF YOUR dashboard.js file:
@@ -83,11 +85,54 @@ const settings = {
   },
 };
 ```
+## POSITIONING
+Each group will create a grid like this, and you can see here position of each item.
+Each item need to have a position in his group.
+```
+position: [X, Y],
 
+Y
+↑
+╔═══════╦═══════╦═══════╗
+║ [0,0] ║ [1,0] ║ [2,0] ║
+╠═══════╬═══════╬═══════╣
+║ [0,1] ║ [1,1] ║ [2,1] ║
+╠═══════╬═══════╬═══════╣
+║ [0,2] ║ [1,2] ║ [2,2] ║
+╚═══════╩═══════╩═══════╝→  X
+
+```
+If an item have a ```width: 2,``` and ```height: 1,``` at ```position: [0,0],```  you will have:
+```
+Y
+↑
+╔═══════════════╦═══════╗
+║     [0,0]     ║ [2,0] ║
+╠═══════╦═══════╬═══════╣
+║ [0,1] ║ [1,1] ║ [2,1] ║
+╠═══════╬═══════╬═══════╣
+║ [0,2] ║ [1,2] ║ [2,2] ║
+╚═══════╩═══════╩═══════╝→  X
+
+```
+An item with ```with: 2,``` and ```height: 3,``` at ```position: [1, 0],```:
+```
+Y
+↑
+╔═══════╦═══════════════╗
+║ [0,0] ║               ║
+╠═══════╣               ║
+║ [0,1] ║     [1, 0]    ║
+╠═══════╣               ║
+║ [0,2] ║               ║
+╚═══════╩═══════════════╝→  X
+
+```
 
 
 ## DEFINE YOUR TILES: 
 All tile need to be define like this:
+
 ```
 {
  position: [0, 0], // Position on the grid (for the group where it's defined). [Pos X, Pos Y]
@@ -98,7 +143,9 @@ All tile need to be define like this:
 }
 ```
 Generally, icon is optionnal, but there is no real point in not defining it.
+
 Some type need to have a minimal size. See it in different type
+
 You can not define an id with same capabilityID more than once.
 
 
