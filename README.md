@@ -174,6 +174,8 @@ Only to show device state. No control. Value of capabilityID can only be true/fa
 icons: { 
  on: "mdi-door-open", // Define an icon when device is on (true)
  off: "mdi-door", // Define an icon when device is off (false)
+ effectOn: "mdi-spin", // Optionnal. Add effect when device is on. See end of this page: https://pictogrammers.github.io/@mdi/font/2.0.46/
+ effectOff: "mdi-rotate-45", // Optionnal. Add effect when device is off.
 },
 ```
 
@@ -298,6 +300,15 @@ position: [0, 0],
  ]
 },
 ```
+- OPTION:
+```
+icons: {
+ on: "mdi-...",
+ off: "mdi-...",
+ effectOn: "mdi-spin", // Optionnal. Add effect when device is on. See end of this page: https://pictogrammers.github.io/@mdi/font/2.0.46/
+ effectOff: "mdi-rotate-45", // Optionnal. Add effect when device is off.
+},
+```
 
 Type HEIMDALL can not be in POPUP because it is already a popup type.
 YOU CAN NOT USE AN ID WITH SAME CAPABILITY ID IS ALREADY EXIST IN YOUR DASHBOARD. BUT YOU CAN USE SAME ID WITH OTHER CAPABILITY ID.
@@ -415,6 +426,8 @@ Controle dimmable light, thermostat temp, volume...
 - OPTION:
 ```
 clickable: false, // If false, it will disable action when click on it. 
+effectOn: "mdi-spin", // Optionnal. Add effect when device is on. See end of this page: https://pictogrammers.github.io/@mdi/font/2.0.46/
+effectOff: "mdi-rotate-45", // Optionnal. Add effect when device is off.
 ```
 
 -----------------------
