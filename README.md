@@ -13,6 +13,7 @@ Icons can be found [here](https://pictogrammers.com/library/mdi/)
 - Need to adapt it for smartphone
 - Try if it can works on ESP32 (I think it's ambitious, but it crossed my mind!)
 - Add some information on screensaver
+- Adapt combinaison of HEIMDALL with code and SCREENSAVER
 - Add transition on IMAGE type
 - Add theme
 - Add some information in the header (may be media information when playing, weather forecast...)
