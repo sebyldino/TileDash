@@ -9,7 +9,11 @@ To customize your dashboard, edit the dashboard.js file like below.
 
 Icons can be found [here](https://pictogrammers.com/library/mdi/)
 
-See preview in file.
+
+![preview](https://github.com/sebyldino/TileDash/assets/17813720/970c8263-4726-4f8c-9e8f-960b087f46d1)
+
+
+
 
 
 ## TODO/IDEAS LIST
