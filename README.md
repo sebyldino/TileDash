@@ -9,6 +9,26 @@ To customize your dashboard, edit the dashboard.js file like below.
 
 Icons can be found [here](https://pictogrammers.com/library/mdi/)
 
+## TODO/IDEAS LIST
+- Need to adapt it for smartphone
+- Try if it can works on ESP32 (I think it's ambitious, but it crossed my mind!)
+- Add some information on screensaver
+- Add transition on IMAGE type
+- Add theme
+- Add some information in the header (may be media information when playing, weather forecast...)
+- I know display value of a SLIDER type is not very good when tile i small (widht or height <= 1). Need to fix it
+- I would like to have possibility to create half tile (like width: 2.5,)
+- Get and use flows to create something with them.
+- Add languages variables
+- Add actual temperature in THERMOSTAT type
+- Add RGB light tile
+- Add CAMERA tile
+- Add WEATHER tile
+- Add possibility to create differents pages
+
+
+
+
 
 
 ## STRUCTURE OF YOUR dashboard.js file:
