@@ -9,7 +9,7 @@ To customize your dashboard, edit the dashboard.js file like below.
 
 Icons can be found [here](https://pictogrammers.com/library/mdi/)
 
-![Alt dashboard](https://i.postimg.cc/26BRwP6n/dashboard.gif)
+See preview in file.
 
 
 ## TODO/IDEAS LIST
