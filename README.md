@@ -9,6 +9,9 @@ To customize your dashboard, edit the dashboard.js file like below.
 
 Icons can be found [here](https://pictogrammers.com/library/mdi/)
 
+![Alt dashboard](https://i.postimg.cc/26BRwP6n/dashboard.gif)
+
+
 ## TODO/IDEAS LIST
 - Need to adapt it for smartphone
 - Try if it can works on ESP32 (I think it's ambitious, but it crossed my mind!)
