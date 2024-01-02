@@ -10,6 +10,8 @@ To customize your dashboard, edit the dashboard.js file like below.
 
 Icons can be found [here](https://pictogrammers.com/library/mdi/)
 
+[Forum topic](https://community.homey.app/t/tiledash-an-homey-dashboard/98802)
+
 
 ![preview](https://github.com/sebyldino/TileDash/assets/17813720/970c8263-4726-4f8c-9e8f-960b087f46d1)
 
