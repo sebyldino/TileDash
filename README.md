@@ -1,4 +1,5 @@
-# TileDash
+![Banner](https://github.com/sebyldino/TileDash/assets/17813720/7387b17e-1fa4-4c16-9e52-b927cd1425d5)
+
 Create your own Homey dashboard.
 Copy all files in your server, nas, RPi, ...
 
