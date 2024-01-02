@@ -3,7 +3,7 @@ Create your own Homey dashboard.
 Copy all files in your server, nas, RPi, ...
 
 Follow steps [here](https://community.homey.app/t/homeydash-com-a-homey-dashboard/13509) to get your token and go to:
-http://YOUR_IP_ADDRESS/?token=YOUR_TOKEN
+http://YOUR_ACCESS_TO_index.html/?token=YOUR_TOKEN
 
 To customize your dashboard, edit the dashboard.js file like below.
 
