@@ -68,8 +68,8 @@ const settings = {
   customText: "Nantes",// Custom text show on top right of the header
   dateLocal: "fr-FR", //date local eg: en-EN, en-US, nl-NL, fr-FR...
   iconSize: 40,//in pixel, icon size on tile. 
-  numOfLandImg: 4, //number of image in Landscape folder, path NEED to be ./img/Landscape
-  numOfPortImg: 5, //number of image in Portrait folder, path NEED to be ./img/Portrait
+  numOfLandImg: 4, //number of image in Landscape folder, path NEED to be ./img/Landscape. Format need to be .jpg
+  numOfPortImg: 5, //number of image in Portrait folder, path NEED to be ./img/Portrait. Format need to be .jpg
   backgroundImage: "./img/background-3.png", //Optionnal
   headerSensor: { //Optionnal. You can show a value on top right of the header (like outside temperature)
     name: "", //Optionnal. If you want show the device name on top right
@@ -157,26 +157,27 @@ You can not define an id with same capabilityID more than once.
 
 ### Type BINARY_SENSOR
 Only to show device state. No control. Value of capabilityID can only be true/false
+![Alt Binary Sensor Tile](https://i.goopics.net/d07hmh.png)
 ```
 {
  position: [0, 0], 
- name: "Capteurs d'ouvertures",
+ name: "DAAF",
  type: "BINARY_SENSOR",
  width: 2,
  height: 1,
  id: "a1234b56-1234-5678-9101-ef123d456", // Id of your device. See Homey developper tool
- capabilityID: "alarm_contact", //Need to be a true/false capability. See Homey developper tool
- icon: "mdi-door", // See https://pictogrammers.com/library/mdi/
+ capabilityID: "alarm_smoke", //Need to be a true/false capability. See Homey developper tool
+ icon: "mdi-fire-off", // See https://pictogrammers.com/library/mdi/
 },
 ```
 - OPTION:
 ```
 icons: { 
- on: "mdi-door-open", // Define an icon when device is on (true)
- off: "mdi-door", // Define an icon when device is off (false)
- effectOn: "mdi-spin", // Optionnal. Add effect when device is on. See end of this page: https://pictogrammers.github.io/@mdi/font/2.0.46/
- effectOff: "mdi-rotate-45", // Optionnal. Add effect when device is off.
+ on: "mdi-fire-alert", // Define an icon when device is on (true)
+ off: "mdi-fire-off", // Define an icon when device is off (false)
 },
+effectOn: "mdi-spin", // Optionnal. Add effect when device is on. See end of this page: https://pictogrammers.github.io/@mdi/font/2.0.46/
+effectOff: "mdi-rotate-45", // Optionnal. Add effect when device is off.
 ```
 
 -----------------------
@@ -185,6 +186,8 @@ icons: {
 
 ### Type BUTTON
 A simple button. With some option to get state from another device.
+![Alt Button Tile](https://i.goopics.net/k7yagt.gif)
+
 ```
 {
  position: [4, 2],
@@ -214,12 +217,12 @@ icons: {
 -----------------------
 
 
-### Type EMPTY
+### Type VIRTUAL
 If you want to reserve a place for future device, or fill a hole you can use it.
 ```
 {
     position: [0, 1],
-    type: 'EMPTY',
+    type: 'VIRTUAL',
     icon: "mdi-lightbulb", // See https://pictogrammers.com/library/mdi/
     name: "Garden",
 },
@@ -229,7 +232,10 @@ If you want to reserve a place for future device, or fill a hole you can use it.
 
 
 ### Type HEIMDALL
-This can not be place in POPUP type.
+This can not be place in POPUP type. On click of tile, it will show a popup.
+
+![Alt Heimdall Tile](https://i.goopics.net/lfyhfz.png)
+
 ```
 {
  position: [0, 0],
@@ -257,6 +263,10 @@ This can not be place in POPUP type.
 
 
 ### Type IMAGE
+Image need to be .jpg file.
+
+![Alt Image Tile](https://i.goopics.net/ncb2du.jpg)
+
 ```
 {
  position: [0, 0],
@@ -277,6 +287,10 @@ This can not be place in POPUP type.
 
 
 ### Type POPUP
+Onclick on the device, it will show a popup with other devices defined in this popup.
+
+![Alt Image Tile](https://i.goopics.net/uuhtsl.jpg)
+
 ```
 {
 position: [0, 0],
@@ -286,7 +300,7 @@ position: [0, 0],
  height: 1,
  id: "a1234b56-1234-5678-9101-ef123d456", // Id of your device. See Homey developper tool
  capabilityID: "BINARY_SENSOR",// you can listen the device, but his action is only open popup
- icon: "mdi-door", // See https://pictogrammers.com/library/mdi/
+ icon: "mdi-door", //Need to be define even you will use icons option. See https://pictogrammers.com/library/mdi/
  popupWidth: 5, // Popup width
  popupHeight: 5, //Popup Height
  items: [
@@ -335,21 +349,51 @@ Eg: You have define this one anywhere:
 },
 ```
 
+-----------------------
+
+
+### Type VIRTUAL_POPUP
+Same functionnality of POPUP except main device who is virtual. Icon does not change.
+```
+{
+position: [0, 0],
+ name: "Capteurs",
+ type: "VIRTUAL_POPUP",
+ width: 1,
+ height: 1,
+ icon: "mdi-door", // See https://pictogrammers.com/library/mdi/
+ popupWidth: 5, // Popup width
+ popupHeight: 5, //Popup Height
+ items: [
+    {
+        //Tile 1
+    },
+    {
+        //Tile 2
+    },
+    ...
+ ]
+},
+```
+
 
 -----------------------
 
 
 ### Type SENSOR
-See sensor value
+See sensor value.
+
+![Alt Sensor Tile](https://i.goopics.net/tgojqd.jpg)
+
 ```
 {
  position: [2, 1],
- name: "Sonde Salon", //Optionnal
+ name: "RDC", //Optionnal
  type: "SENSOR",
  width: 2,
  height: 2,
  id: "a1234b56-1234-5678-9101-ef123d456", // Id of your device. See Homey developper tool
- capabilityID: "measure_temperature.DS18B20-2", // See Homey developper tool
+ capabilityID: "measure_temperature", // See Homey developper tool
  icon: "mdi-thermometer", //See https://pictogrammers.com/library/mdi/
  unit: "°C", //Need to be defined but can be empty (unit: "",)
 },
@@ -360,7 +404,9 @@ See sensor value
 
 
 ### Type SHUTTER
-Control shutter
+Control shutter.
+
+![Alt Shutter Tile](https://i.goopics.net/sz9dku.jpg)
 ```
 {
  position: [0, 0],
@@ -385,6 +431,9 @@ Control shutter
 
 ### Type SLIDER
 Controle dimmable light, thermostat temp, volume...
+
+![Alt Slider Tile](https://i.goopics.net/f2vzaq.png)
+
 ```
 {
  position: [0, 3],
@@ -411,20 +460,29 @@ Controle dimmable light, thermostat temp, volume...
 
 
 ### Type SWITCH
+Control on/off device.
+
+![Alt Switch Tile](https://i.goopics.net/03qenh.png)
+
+
 ```
 {
  position: [1, 6], 
- name: "Batteries",
+ name: "ECL Rang",
  type: "SWITCH",
  width: 1,
  height: 1,
  id: "a1234b56-1234-5678-9101-ef123d456", // Id of your device. See Homey developper tool
  capabilityID: "onoff", // Need to accept only true/false value
- icon: "mdi-battery-alert-variant", //See https://pictogrammers.com/library/mdi/
+ icon: "mdi-lightbulb", // Need to be define even you will use icons option. See https://pictogrammers.com/library/mdi/
 },
 ```
 - OPTION:
 ```
+icons:{
+ on: "mdi-lightbulb",
+ off: "mdi-lightbul-off,
+},
 clickable: false, // If false, it will disable action when click on it. 
 effectOn: "mdi-spin", // Optionnal. Add effect when device is on. See end of this page: https://pictogrammers.github.io/@mdi/font/2.0.46/
 effectOff: "mdi-rotate-45", // Optionnal. Add effect when device is off.
@@ -435,6 +493,16 @@ effectOff: "mdi-rotate-45", // Optionnal. Add effect when device is off.
 
 
 ### Type THERMOSTAT
+Control your thermostat
+
+![Alt Thermostat Tile](https://i.goopics.net/ne1etu.jpg)
+
+Top left icon: state of thermostat, if heating is on or off.
+
+Top right icon: Turn on/off the thermostat. Tile change on this state.
+
+Button +/-: Control target temperature
+
 ```
 {
  position: [3, 0],
@@ -448,8 +516,75 @@ effectOff: "mdi-rotate-45", // Optionnal. Add effect when device is off.
  onOffCapabilityID: "onoff", // On off capability id. For Vthermo onoff is to turn on or of thermostat
  heatingCapabilityID: "vt_onoff", // heating on off capabilityID. For Vthermo vt_onoff is the state of thermostat (if is heating on or heating off)
  icon: "mdi-thermometer", // See https://pictogrammers.com/library/mdi/
- iconHeatingOn: "mdi-fire",
+ iconHeatingOn: "mdi-fire", // Icon show on top left of tile
  iconHeatingOff: "mdi-fire-off",//
  unit: "°C",//Need to be defined. Can be empty (unit: "",)
 },
+```
+
+### Type DOORBIRD_POPUP
+
+This is not a visible device, it will be triggered when the value of "capabilityID" (define below) is set to true (when someone ring your doorbell, or motion detected) and open a popup with live stream of doorbird and a button.
+It does not take the place of another device. You can set it in which group you want as another type, it has no impact.
+At the moment, it does not support audio. May be in future if solution is found.
+
+![Alt Doorbird popup](https://i.goopics.net/cqaww6.jpg)
+
+```
+{
+ type: "DOORBIRD_POPUP",
+ id: "a1234b56-1234-5678-9101-ef123d456", // Id of your doorbird device. See Homey developper tool
+ capabilityID: 'alarm_generic',//capability id to listen to open popup when triggered
+ doorbirdIP: "http://xxx.xxx.xxx.xxx", // ip address of your doorbird http://192.168.X.X or can also be https://domain.com
+ user: "abcdefgh", // doorbird user. See you doorbird settings
+ password: "12345678", // doorbird user password. See you doorbird settings
+ icon: "mdi-gate", //icon for door button in popup
+ width: 8, // Popup width. Recommanded to set 4:3 format
+ height: 6,//Popup height. Recommanded to set 4:3 format
+ autoClose: 60, // Timeout in second before auto close popup
+},
+
+```
+- OPTION:
+
+```
+doorDevice:{ //Optionnal. Set it to use a different device than the generic relay of Doorbird
+  id:"a1234b56-1234-5678-9101-ef123d456", // Id of your device control door. See Homey developper tool
+  capabilityID: "", // Capability id of door device to trigger. Need to be a true/false value (like onoff, button...) value send when door button is press is only 'true', you need to have/create flow to set it to false after door button pressed
+ },
+ secondDoorDevice:{ // For example if you have a door control and a gate you can set it here
+  id:"780ed6ba-6ab1-4f5a-8410-13cd4387cbd5", //Optionnal. Set it to use one more device than generic relay of Doorbird (or even doorDevice)
+  capabilityID: "onoff", // Capability id of door device to trigger. Need to be a true/false value (like onoff, button...) value send when door button is press is only 'true', you need to have/create flow to set it to false after door button pressed
+  icon: "mdi-lightbulb",//define an icon for this button
+ },
+ testPopup: true,// Set it to test your DoorBird popup. Doorbird popup will be open few second after refresh page. COMMENT OR SET FALSE WHEN ALL IS GOOD!
+```
+
+
+
+### Type MEDIA
+Control media device.
+
+![Alt Media popup](https://i.goopics.net/o5u12j.gif)
+
+```
+{
+ position: [3, 6],
+ type: "MEDIA",
+ width: 2, // Must be at least 2
+ height: 2, // Must be at least 2
+ id: "a1234b56-1234-5678-9101-ef123d456", // Id of your device. See Homey developper tool
+ homeyIP: "192-168-1-11", // Define you Homey IP like this xxx-xxx-xxx-xxx and not xxx.xxx.xxx.xxx
+ minVol: 0, // Min volume
+ maxVol: 1, // Max volume
+ volStep: 0.05, // Volume step
+ capabilityID: "speaker_playing", // Capability of play control
+ standbyIcon: "mdi-speaker", // See https://pictogrammers.com/library/mdi/
+},
+```
+
+OPTION:
+```
+ standbyImage: "./img/music.jpeg",//Replace 'standbyIcon' by this to show custom image when device is off/not playing 
+ accountID: "123456789abcdef", // If an external access is used, you need to use account ID and not homeyIP to get cover of song. See Homey developper tool -> My Account 
 ```
