@@ -320,7 +320,7 @@ position: [0, 0],
  width: 1,
  height: 1,
  id: "a1234b56-1234-5678-9101-ef123d456", // Id of your device. See Homey developper tool
- capabilityID: "BINARY_SENSOR",// you can listen the device, but his action is only open popup
+ capabilityID: "alarm_contact",// you can listen the device, but his action is only open popup
  icon: "mdi-door", //Need to be define even you will use icons option. See https://pictogrammers.com/library/mdi/
  popupWidth: 5, // Popup width
  popupHeight: 5, //Popup Height
