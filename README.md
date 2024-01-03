@@ -21,7 +21,6 @@ Icons can be found [here](https://pictogrammers.com/library/mdi/)
 
 ## TODO/IDEAS LIST
 - Need to adapt it for smartphone
-- Try if it can works on ESP32 (I think it's ambitious, but it crossed my mind!)
 - Add some information on screensaver
 - Adapt combinaison of HEIMDALL with code and SCREENSAVER
 - Add transition on IMAGE type
@@ -36,6 +35,9 @@ Icons can be found [here](https://pictogrammers.com/library/mdi/)
 - Add CAMERA tile
 - Add WEATHER tile
 - Add possibility to create differents pages
+
+#### DONE
+- Try if it can works on ESP32 (I think it's ambitious, but it crossed my mind!) ->  Impossible, memory size is to small on ESP32
 
 
 
