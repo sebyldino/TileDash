@@ -37,7 +37,7 @@ Icons can be found [here](https://pictogrammers.com/library/mdi/)
 - Add possibility to create differents pages
 
 #### DONE
-- Try if it can works on ESP32 (I think it's ambitious, but it crossed my mind!) ->  Impossible, memory size is to small on ESP32
+- Try if it can works on ESP32 (I think it's ambitious, but it crossed my mind!) ->  Impossible, memory size is to small on ESP32 (it works but can not upload all files needed)
 
 
 
