@@ -47,6 +47,7 @@ Icons can be found [here](https://pictogrammers.com/library/mdi/)
 - Updated SLIDER type and display value fixed
 - It is now possible to add the same device several times
 - The popup closes automatically after 20 seconds of inactivity (tell me if you want to custom this time)
+- Setting an id for the IMAGE type is no longer necessary
 
 
 --------------
@@ -186,7 +187,6 @@ Generally, icon is optionnal, but there is no real point in not defining it.
 
 Some type need to have a minimal size. See it in different type
 
-You can not define an id with same capabilityID more than once.
 
 
 
@@ -315,7 +315,6 @@ Image need to be .jpg file.
  height: 3,
  folder: "./img/Landscape", // If you want to scroll different image. The path need to be this or ./img/Portrait
  timeScroll: 5, // Time in seconds for scrolling images
- id: "tile-image-1", // Define which id you want but use a different id for each IMAGE type in your dashboard
 },
 ```
 - OPTION:
