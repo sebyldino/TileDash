@@ -1,10 +1,5 @@
 /*
-Define here your dashboard configuration.
-Some informations:
-    -You can use a device (id) ONLY one time everywhere in this code
-    -position:[0,0], it's the position of item in his group. [0,0] will place item at the top left, [0,1] will place it under the first one at the left, make sure you take into account the size of each device when placing the following
-
-
+To try TilDash, you can rename this file to "dashboard.js" and replace original "dahboard.js" file.
 */
 
 const settings = {
@@ -15,7 +10,7 @@ const settings = {
     groupMargin: 10,//in pixels
     orientation: "landscape", //portrait or landscape, can be force in url by add "...?orientation=portrait&token=..." 
     customText: "Custom Text",
-    dateLocal: "fr-FR", //date local eg: en-EN, en-US, nl-NL, fr-FR...
+    dateLocal: "en-EN", //date local eg: en-EN, en-US, nl-NL, fr-FR...
     iconSize: 40,//in pixel
     numOfLandImg: 4, //number of image in Landscape folder, path NEED to be ./img/Landscape
     numOfPortImg: 5, //number of image in Portrait folder, path NEED to be ./img/Portrait
