@@ -20,17 +20,15 @@ Icons can be found [here](https://pictogrammers.com/library/mdi/)
 
 
 ## TODO/IDEAS LIST
-- Need to adapt it for smartphone
+- Create file/site to generate user dashboard's file for easy configuration. (searching a solution...)
 - Add some information on screensaver
 - Adapt combinaison of HEIMDALL with code and SCREENSAVER
 - Add transition on IMAGE type
 - Add theme
 - Add some information in the header (may be media information when playing, weather forecast...)
-- I know display value of a SLIDER type is not very good when tile i small (widht or height <= 1). Need to fix it
 - I would like to have possibility to create half tile (like width: 2.5,)
 - Get and use flows to create something with them.
 - Add languages variables
-- Add actual temperature in THERMOSTAT type
 - Add RGB light tile
 - Add CAMERA tile
 - Add WEATHER tile
@@ -38,11 +36,20 @@ Icons can be found [here](https://pictogrammers.com/library/mdi/)
 
 #### DONE
 - Try if it can works on ESP32 (I think it's ambitious, but it crossed my mind!) ->  Impossible, memory size is to small on ESP32 (it works but can not upload all files needed)
+- I know display value of a SLIDER type is not very good when tile i small (widht or height <= 1). Need to fix it
+- Need to adapt it for smartphone
+- Add actual temperature in THERMOSTAT type
+
+#### RELEASE NOTES FOR v0.2
+- Now fits the smartphone: add mobile=true in url like http://YOUR_URL/?mobile=true&token=...
+- Adjust "portrait" orientation
+- Updated THERMOSTAT type
+- Updated SLIDER type and display value fixed
+- It is now possible to add the same device several times
+- The popup closes automatically after 20 seconds of inactivity (tell me if you want to custom this time)
 
 
-
-
-
+--------------
 
 ## STRUCTURE OF YOUR dashboard.js file:
 
@@ -322,6 +329,8 @@ Image need to be .jpg file.
 ### Type POPUP
 Onclick on the device, it will show a popup with other devices defined in this popup.
 
+For smartphone display, it is recommended to set the popup width to 5 or 6. It will adapt automatically but if it is too large, it will be very small on the smartphone screen.
+
 ![Alt Image Tile](https://i.goopics.net/uuhtsl.jpg)
 
 ```
@@ -465,7 +474,9 @@ Control shutter.
 ### Type SLIDER
 Controle dimmable light, thermostat temp, volume...
 
-![Alt Slider Tile](https://i.goopics.net/f2vzaq.png)
+![Slider3](https://github.com/sebyldino/TileDash/assets/17813720/18bd8066-c2ba-4d37-9bd9-b14fb062299c)
+
+
 
 ```
 {
@@ -528,13 +539,18 @@ effectOff: "mdi-rotate-45", // Optionnal. Add effect when device is off.
 ### Type THERMOSTAT
 Control your thermostat
 
-![Alt Thermostat Tile](https://i.goopics.net/ne1etu.jpg)
+![Thermostat2](https://github.com/sebyldino/TileDash/assets/17813720/c41ce6b8-90b3-45c4-bde4-cebb7a18309b)
+
 
 Top left icon: state of thermostat, if heating is on or off.
 
 Top right icon: Turn on/off the thermostat. Tile change on this state.
 
-Button +/-: Control target temperature
+Button +/-: Control target temperature.
+
+Orange value: Target temp.
+
+Black value: Actual temp.
 
 ```
 {
