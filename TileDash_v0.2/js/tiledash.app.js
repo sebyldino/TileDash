@@ -344,10 +344,11 @@ window.addEventListener('load', function () {
   ////===========================================================================////
   ////                                FORMAT DATE
   ////===========================================================================////
-  function formatDate() {
+ function formatDate() {
+    const dateLocal = window.dashboard.settings.dateLocal;
     const options = { weekday: 'long', day: 'numeric', month: 'long' };
     const date = new Date();
-    return new Intl.DateTimeFormat('fr-FR', options).format(date);
+    return new Intl.DateTimeFormat(dateLocal, options).format(date);
   }
 
 
