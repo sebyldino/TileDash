@@ -40,14 +40,8 @@ Icons can be found [here](https://pictogrammers.com/library/mdi/)
 - Need to adapt it for smartphone
 - Add actual temperature in THERMOSTAT type
 
-#### RELEASE NOTES FOR v0.2
-- Now fits the smartphone: add mobile=true in url like http://YOUR_URL/?mobile=true&token=...
-- Adjust "portrait" orientation
-- Updated THERMOSTAT type
-- Updated SLIDER type and display value fixed
-- It is now possible to add the same device several times
-- The popup closes automatically after 20 seconds of inactivity (tell me if you want to custom this time)
-- Setting an id for the IMAGE type is no longer necessary
+#### RELEASE NOTES FOR v0.3
+- Add second value for SENSOR type
 
 
 --------------
@@ -187,6 +181,7 @@ Generally, icon is optionnal, but there is no real point in not defining it.
 
 Some type need to have a minimal size. See it in different type
 
+You can not define an id with same capabilityID more than once.
 
 
 
@@ -315,6 +310,7 @@ Image need to be .jpg file.
  height: 3,
  folder: "./img/Landscape", // If you want to scroll different image. The path need to be this or ./img/Portrait
  timeScroll: 5, // Time in seconds for scrolling images
+ id: "tile-image-1", // Define which id you want but use a different id for each IMAGE type in your dashboard
 },
 ```
 - OPTION:
@@ -424,7 +420,8 @@ position: [0, 0],
 ### Type SENSOR
 See sensor value.
 
-![Alt Sensor Tile](https://i.goopics.net/tgojqd.jpg)
+![sensor](https://github.com/sebyldino/TileDash/assets/17813720/bfe9b5f0-5e2d-41dd-9326-31190a65c502)
+
 
 ```
 {
@@ -439,6 +436,15 @@ See sensor value.
  unit: "°C", //Need to be defined but can be empty (unit: "",)
 },
 ```
+- OPTION:
+```
+secondValue:{
+    capabilityID: 'measure_humidity',
+    icon: 'mdi-water-percent',
+    unit: '%',
+}
+```
+
 
 
 -----------------------
