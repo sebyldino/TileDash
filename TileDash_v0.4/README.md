@@ -87,7 +87,26 @@ const dashboard = [
     },
     ...
 ];
-window.dashboard = { settings, dashboard };
+
+const flows = [ // Works for flows and advanced flows
+    {
+      id: "flow_id_1",
+      name: "flow_name_1",
+    },
+    {
+      id: "flow_id_2",
+      name: "flow_name_2",
+    },
+    {
+      id: "flow_id_3",
+      name: "flow_name_3",
+    },
+    {
+      id: "flow_id_4",
+      name: "flow_name_4",
+    },
+  ];
+window.dashboard = { settings, dashboard, flows };
 ```
 
 
@@ -119,6 +138,7 @@ const settings = {
     timeout: 5, //In seconds before show screensaver
     exitMode: "slide_up", //can be "mouse_move, key_press, slide_up". if empty or undefined, mouse_move and key_press are active. If exitMode is defined to "slide_up", you need to define a slideDistance
     slideDistance: 300, //distance in pixel need to be slide to exit screensaver
+    enableOnMobile: false, //Mandatory param if screensaver is enable, if you want disable/enable screensaver on mobile, you can set it here
   },
 };
 ```
@@ -643,3 +663,40 @@ OPTION:
  standbyImage: "./img/music.jpeg",//Replace 'standbyIcon' by this to show custom image when device is off/not playing 
  accountID: "123456789abcdef", // If an external access is used, you need to use account ID and not homeyIP to get cover of song. See Homey developper tool -> My Account 
 ```
+
+
+
+## FLOWS:
+
+![headerFlows](https://github.com/sebyldino/TileDash/assets/17813720/c854a7d3-d8a6-4915-a1d5-e23ba96b5c94)
+
+![Gif flow mobile](https://github.com/sebyldino/TileDash/assets/17813720/1964e9ba-d333-402b-a6fd-8d0b444a4a4b)
+
+
+You need to define yours flows in the 'flows' section of dashboard.js file like this:
+
+```
+const flows = [ // Works for flows and advanced flows
+    {
+      id: "flow_id_1",
+      name: "flow_name_1",
+    },
+    {
+      id: "flow_id_2",
+      name: "flow_name_2",
+    },
+    {
+      id: "flow_id_3",
+      name: "flow_name_3",
+    },
+    {
+      id: "flow_id_4",
+      name: "flow_name_4",
+    },
+  ];
+  ```
+
+The flow id can be found in the url on https://my.homey.app/ when you select a flow:
+
+![flowID](https://github.com/sebyldino/TileDash/assets/17813720/7696f4c7-a088-49b2-876f-683376a91a55)
+
