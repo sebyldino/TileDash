@@ -176,6 +176,14 @@ window.addEventListener('load', function () {
 
 
 
+
+
+
+
+
+
+
+
   ////===========================================================================////
   ////                               GET ALL DEVICES
   ////===========================================================================////
@@ -188,6 +196,8 @@ window.addEventListener('load', function () {
       return displayDevices(allDevices, dashboard);
     }).catch(console.error);
   } //END getAllDevices()
+
+
 
 
 
@@ -238,20 +248,20 @@ window.addEventListener('load', function () {
     var tileMargin = window.dashboard.settings.tileMargin;
     var groupMargin = window.dashboard.settings.groupMargin;
 
-    ////==========    Calculate total width of groups   ==========
-    const totalGroupsWidth = dashboard.reduce((total, group) => total + tileWidth * group.width, 0);
-
-    ////==========     Calculate available space between groups   ==========
-    const availableMarginSpace = $dashboardContainer.clientWidth - totalGroupsWidth;
-
-    ////==========   Calculate left and right margin    ==========
-    const sideMargin = availableMarginSpace / (dashboard.length + 1);
 
 
 
     ////==========    Create each page (page in dashboard.js)   ==========
     dashboard.forEach(function (page, pageIndex) {
-      //console.log('number of groupe: '+ page.group.length + ' in page n°' + pageIndex);
+
+
+      //+++++ Calculate total width of groups
+      const totalGroupsWidth = page.group.reduce((total, group) => total + tileWidth * group.width, 0);
+      //+++++  Calculate available space between groups
+      const availableMarginSpace = $dashboardContainer.clientWidth - totalGroupsWidth;
+      //+++++ Calculate left and right margin
+      const sideMargin = availableMarginSpace / (page.group.length + 1);
+
 
       const $pageContainer = document.createElement('div');
       $pageContainer.classList.add('page');
@@ -350,7 +360,7 @@ window.addEventListener('load', function () {
           }
           //==========    Apply left and right margin to center groups    ==========
           $group.style.marginLeft = groupIndex === 0 ? `${sideMargin + groupMargin}px` : `${groupMargin}px`;
-          $group.style.marginRight = groupIndex === dashboard.length - 1 ? `${sideMargin + groupMargin}px` : `${groupMargin}px`;
+          $group.style.marginRight = groupIndex === page.group.length - 1 ? `${sideMargin + groupMargin}px` : `${groupMargin}px`;
         }
         //!----- Orientation
         // Add top margin in portrait
@@ -631,4 +641,3 @@ window.addEventListener('load', function () {
 
   //!===============================
 }); //END window.addEventListener()
-
