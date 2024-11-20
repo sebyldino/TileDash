@@ -16,24 +16,29 @@ Icons can be found [here](https://pictogrammers.com/library/mdi/)
 ![preview](https://github.com/sebyldino/TileDash/assets/17813720/970c8263-4726-4f8c-9e8f-960b087f46d1)
 
 
-#### RELEASE NOTES FOR v0.4
-- Flows and Advanced flows can be add on header (set them at end of dashboard.js)
-- Add possibility to disable screenSaver on mobile
-- Refresh the page when it comes back to the foreground on mobile
+#### RELEASE NOTES FOR v0.5
+- Add pages
+- Add type GAUGE
+- Add 2 theme: smooth-light and smooth-dark (see end of this readme)
+- Add variable to css to customise some color (see ':root' in each css)
+- Adjust slider
+- Adjust mobile vue
+- Adjust some css styles
+- Add possibility to define token in dashboard.js
+- Group name is now optionnal
 
 
-## TODO/IDEAS LIST
 
+#### TODO/IDEAS LIST
 - Add some information on screensaver
 - Adapt combinaison of HEIMDALL with code and SCREENSAVER
 - Add transition on IMAGE type
-- Add theme
 - I would like to have possibility to create half tile (like width: 2.5,)
 - Add languages variables
 - Add RGB light tile
 - Add CAMERA tile
 - Add WEATHER tile
-- Add possibility to create differents pages
+
 
 #### DONE
 - Try if it can works on ESP32 (I think it's ambitious, but it crossed my mind!) ->  Impossible, memory size is to small on ESP32 (it works but can not upload all files needed)
@@ -42,6 +47,8 @@ Icons can be found [here](https://pictogrammers.com/library/mdi/)
 - Add actual temperature in THERMOSTAT type
 - Create file/site to generate user dashboard's file for easy configuration. (searching a solution...) FLOWS ARE NOT INCLUDE IN TILEDASH-TOOL
 - Get and use flows to create something with them.
+- Add theme
+- Add possibility to create differents pages
 
 
 
@@ -56,36 +63,80 @@ const settings = {
 };
 
 const dashboard = [
-    { // Group 1
-     title: "Title group 1",
-     width: 5, // Group 1 width
-     height: 9, // Group 1 height
-     items: [
-        {
-            // Tile 1, group 1
-        },
-        {
-            // Tile 2, group 1
-        },
-        ...
-     ]
-    },
 
-    { // Group 2
-     title: "Title group 2",
-     width: 3, // Group 2 width
-     height: 6, // Group 2 height
-     items: [
-        {
-            // Tile 1, group 2
+    { // Page 1
+      icon: 'mdi-home',
+      group: [
+        { // Group 1 of page 1
+          title: "Title group 1", //Optionnal
+          width: 5, // Group 1 width
+          height: 9, // Group 1 height
+          items: [
+            {
+            // Tile 1, group 1
+            },
+            {
+            // Tile 2, group 1
+            },
+            ...
+          ]
         },
-        {
+
+        { // Group 2 of page 1
+          title: "Title group 2",
+          width: 3, // Group 2 width
+          height: 6, // Group 2 height
+          items: [
+            {
+            // Tile 1, group 2
+            },
+            {
             // Tile 2, group 2
+            },
+            ...
+          ]
         },
         ...
-     ]
-    },
-    ...
+      ]// END group page 1
+    },// END page 1
+
+
+    { // Page 2
+      icon: 'mdi-car',
+      group: [
+        { // Group 1 of page 2
+          title: "Title group 1",
+          width: 5, // Group 1 width
+          height: 9, // Group 1 height
+          items: [
+            {
+            // Tile 1, group 1
+            },
+            {
+            // Tile 2, group 1
+            },
+            ...
+          ]
+        },
+
+        { // Group 2 of page 2
+          title: "Title group 2",
+          width: 3, // Group 2 width
+          height: 6, // Group 2 height
+          items: [
+            {
+            // Tile 1, group 2
+            },
+            {
+            // Tile 2, group 2
+            },
+            ...
+          ]
+        },
+        ...
+      ]// END group page 2
+    }// END page 2
+    
 ];
 
 const flows = [ // Works for flows and advanced flows
@@ -140,6 +191,8 @@ const settings = {
     slideDistance: 300, //distance in pixel need to be slide to exit screensaver
     enableOnMobile: false, //Mandatory param if screensaver is enable, if you want disable/enable screensaver on mobile, you can set it here
   },
+  softMobileHeader: true, // optionnal. To clean header in mobile vue
+  token: "YOUR_TOKEN", // you can define it here or in url
 };
 ```
 ## POSITIONING
@@ -665,6 +718,50 @@ OPTION:
 ```
 
 
+### Type GAUGE
+
+![gauge](https://github.com/user-attachments/assets/017522fa-e826-44e3-80ee-5a3520bbb495)
+
+
+
+```
+{
+        position: [0, 6],
+        name: "Bedroom",
+        type: "GAUGE",
+        width: 2, // need to be at least 2
+        height: 2, // need to be at least 2
+        id: "31f6ad71-64d5-4489-9b7f-31207da734c4",
+        capabilityID: "measure_temperature",
+        icon: "mdi-thermometer",
+        unit: "°C",
+        maxValue: 30,
+      },
+```
+
+OPTION:
+```
+secondValue:{
+    capabilityID: 'measure_humidity',
+    icon: 'mdi-water-percent',
+    unit: '%',
+}
+stepColor: { // define different colors depending on the values. If set, 'prim' and 'sec' must to be defined
+          prim: {
+            color: 'cyan', // or #0000ff color, or rgb(120,120,120)
+            step: 18, // 0 to 18
+          } ,
+          sec: {
+            color: 'lime',
+            step: 23, // 18 to 23
+          },
+          third: { //third is optionnal
+            color: 'red', // higher than sec step  
+          },
+        },
+```
+
+
 
 ## FLOWS:
 
@@ -699,4 +796,23 @@ const flows = [ // Works for flows and advanced flows
 The flow id can be found in the url on https://my.homey.app/ when you select a flow:
 
 ![flowID](https://github.com/sebyldino/TileDash/assets/17813720/7696f4c7-a088-49b2-876f-683376a91a55)
+
+
+## THEME
+By default theme is 'tiledash' if no theme are defined.
+You can define theme in url like 'theme=smooth-light'
+example url: 'http://path_to_TileDash?token=your_token&theme=smooth-light'
+### Theme 'smooth-light'
+It's recommanded to set more space between tiles and groups to have nice look. 
+Adjust 'tileMargin' and 'groupMargin' in dashboard.js. In these screenshot below, tileSize = 70, tileMargin = 20, groupMargin = 25.
+![Capture d'écran 2024-11-20 151127](https://github.com/user-attachments/assets/6737bb79-007c-4020-af42-ae9437438c37)
+
+
+
+### Theme 'smooth-dark'
+![Capture d'écran 2024-11-20 150951](https://github.com/user-attachments/assets/89e923cc-26b4-44a1-a166-cf2b563dacfd)
+
+
+
+
 
